@@ -1,0 +1,43 @@
+// ============================================================
+// DESIGN TOKENS — single source of truth for the visual system
+// ============================================================
+
+// Palette
+$bg:            #0c110d;                       // page background (near-black green)
+$bg-footer:     #090d0a;                       // footer strip
+$surface:       #141b16;                       // card background
+$surface-2:     #1a231c;                       // raised / hover surface
+$line:          rgba(237, 248, 240, 0.08);     // hairline borders
+$line-strong:   rgba(237, 248, 240, 0.18);     // hover borders
+
+$text:          #eef5ef;
+$text-muted:    #9dafa3;
+$text-faint:    #6d7f74;
+
+$accent:        #3ce39d;                       // mint green
+$accent-strong: #12b97b;
+$accent-soft:   rgba(60, 227, 157, 0.12);      // tinted backgrounds
+$accent-glow:   rgba(60, 227, 157, 0.28);      // shadows / glows
+
+$gradient:      linear-gradient(100deg, #3ce39d 10%, #b9f7ca 90%);
+
+// Typography
+$font-body:     "Manrope", system-ui, sans-serif;
+$font-display:  "Bricolage Grotesque", "Manrope", sans-serif;
+
+// Geometry
+$radius-sm:     12px;
+$radius-md:     20px;
+$radius-lg:     28px;
+$radius-pill:   999px;
+
+$container:     1240px;
+$header-height: 78px;
+
+// Motion
+$ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+$transition:    0.3s $ease-out;
+
+// Breakpoints
+$bp-md:         768px;
+$bp-lg:         1024px;

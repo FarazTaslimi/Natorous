@@ -1,0 +1,47 @@
+// ============================================================
+// STAT BOX (hero bar)
+// ============================================================
+
+@use '../abstracts/variables' as *;
+
+.stat-box {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    &__icon {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: rgba(237, 248, 240, 0.06);
+        border: 1px solid $line;
+        color: $accent;
+
+        .icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__value {
+        font-family: $font-display;
+        font-size: 1.55rem;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__label {
+        font-size: 0.8rem;
+        color: $text-muted;
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,191 @@
+// ============================================================
+// HEADER — fixed, transparent → glass on scroll, mobile overlay
+// ============================================================
+
+@use '../abstracts/variables' as *;
+
+.header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    height: $header-height;
+    transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+    border-bottom: 1px solid transparent;
+
+    &.is-scrolled {
+        background: rgba(12, 17, 13, 0.72);
+        border-bottom-color: $line;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        height: 100%;
+    }
+
+    // ----------------------------------------------------------
+    &__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+    }
+
+    &__brand-icon {
+        width: 34px;
+        height: 34px;
+        color: $accent;
+        stroke-width: 2.2;
+    }
+
+    &__brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
+    }
+
+    &__brand-name {
+        font-family: $font-display;
+        font-weight: 750;
+        font-size: 1.22rem;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+    }
+
+    &__brand-tagline {
+        font-size: 0.66rem;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: $text-faint;
+    }
+
+    // ----------------------------------------------------------
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    &__link {
+        position: relative;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: $text-muted;
+        transition: color $transition;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            border-radius: 999px;
+            background: $gradient;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform $transition;
+        }
+
+        &:hover {
+            color: $text;
+        }
+
+        &.is-active {
+            color: $text;
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    // ----------------------------------------------------------
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__burger {
+        display: none;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        border: 1px solid $line-strong;
+        color: $text;
+        place-items: center;
+
+        .icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    &__burger-close {
+        display: none;
+    }
+
+    // Mobile ----------------------------------------------------
+    @media (max-width: 900px) {
+        &__nav {
+            position: fixed;
+            inset: $header-height 0 0 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+            gap: 0;
+            padding: 1.5rem clamp(1.25rem, 6vw, 2.5rem) 3rem;
+            background: rgba(9, 13, 10, 0.97);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            transform: translateY(-8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .is-open &__nav {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        &__link {
+            padding: 1.1rem 0;
+            font-size: 1.25rem;
+            font-family: $font-display;
+            font-weight: 600;
+            border-bottom: 1px solid $line;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__burger {
+            display: grid;
+        }
+
+        .is-open &__burger {
+            &-open {
+                display: none;
+            }
+
+            &-close {
+                display: block;
+            }
+        }
+    }
+
+    // Hide CTA on very small screens
+    @media (max-width: 480px) {
+        &__cta {
+            display: none;
+        }
+    }
+}

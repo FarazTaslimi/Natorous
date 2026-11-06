@@ -1,0 +1,78 @@
+// ============================================================
+// SECTION HEADINGS
+// ============================================================
+
+@use '../abstracts/variables' as *;
+
+.section-heading {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+
+    &__title {
+        margin-top: 1.1rem;
+        font-family: $font-display;
+        font-size: clamp(1.9rem, 3.4vw, 3rem);
+        font-weight: 650;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        max-width: 22ch;
+    }
+
+    &__text {
+        margin-top: 1rem;
+        color: $text-muted;
+        max-width: 52ch;
+    }
+
+    // Heading left, lead text right (used by tours / destinations)
+    &--split {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "eyebrow text"
+            "title   text";
+        column-gap: 3rem;
+        row-gap: 0;
+        align-items: end;
+
+        .eyebrow {
+            grid-area: eyebrow;
+        }
+
+        .section-heading__title {
+            grid-area: title;
+            max-width: 18ch;
+        }
+
+        .section-heading__text {
+            grid-area: text;
+            margin: 0 0 0.35rem;
+            max-width: 38ch;
+        }
+
+        @media (max-width: $bp-md) {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "eyebrow"
+                "title"
+                "text";
+
+            .section-heading__text {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    // Everything centered (used by reviews)
+    &--center {
+        text-align: center;
+
+        .section-heading__title,
+        .section-heading__text {
+            margin-inline: auto;
+        }
+
+        .eyebrow::before {
+            display: none;
+        }
+    }
+}

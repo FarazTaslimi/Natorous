@@ -1,0 +1,196 @@
+{
+  "_docs": "This is the ONLY data file a company needs to edit. Swap text, tours, destinations, reviews, links and images here, then deploy — no rebuild required (images live in public/img/ and are referenced by filename only). `{year}` in copyright is replaced automatically. Set footer.newsletter.action to a form endpoint (Formspree / Mailchimp / your API) to receive real subscriptions.",
+
+  "site": {
+    "name": "Natorous",
+    "tagline": "Go beyond the map.",
+    "description": "Small-group expeditions to the planet's last wild places.",
+    "bookingUrl": "#contact",
+    "currency": "$"
+  },
+
+  "nav": [
+    { "label": "Home", "href": "#home" },
+    { "label": "Expeditions", "href": "#tours" },
+    { "label": "Destinations", "href": "#destinations" },
+    { "label": "Stories", "href": "#reviews" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+
+  "hero": {
+    "eyebrow": "Small groups · Wild places · Expert guides",
+    "titleLine1": "The world is",
+    "titleAccent": "still wild.",
+    "titleLine2": "Go find it.",
+    "text": "Eight-day, expert-guided expeditions to the corners the crowds never reach. Twelve travellers max, one unforgettable planet.",
+    "image": "hero.png",
+    "imageAlt": "A hiker on a mountain ridge above misty valleys at sunrise",
+    "primaryCta": { "label": "Browse expeditions", "href": "#tours" },
+    "secondaryCta": { "label": "Watch the film", "href": "#", "icon": "play" },
+    "scrollHint": "Scroll to explore"
+  },
+
+  "stats": [
+    { "icon": "globe",    "value": 38,    "suffix": "",   "decimals": 0, "label": "Countries explored" },
+    { "icon": "mountain", "value": 120,   "suffix": "+",  "decimals": 0, "label": "Expeditions run" },
+    { "icon": "users",    "value": 15,    "suffix": "K+", "decimals": 0, "label": "Happy travellers" },
+    { "icon": "star",     "value": 4.9,   "suffix": "",   "decimals": 1, "label": "Average rating" }
+  ],
+
+  "tours": {
+    "id": "tours",
+    "eyebrow": "Featured expeditions",
+    "heading": "Trips people can't stop talking about",
+    "text": "Every route is scouted by our own guides and capped at twelve travellers.",
+    "showFilters": true,
+    "allFilterLabel": "All trips",
+    "moreLabel": "See all expeditions",
+    "moreHref": "#contact",
+    "bookLabel": "Book this trip",
+    "items": [
+      {
+        "location": "Nepal",
+        "title": "Annapurna High Route",
+        "description": "Wake to prayer flags and pink-lit peaks on a tea-house trek across the Annapurna range, past 5,000 m passes and valley monasteries.",
+        "image": "tour-nepal.png",
+        "days": 10,
+        "difficulty": "Challenging",
+        "groupSize": 10,
+        "price": 1890,
+        "tag": "Bestseller"
+      },
+      {
+        "location": "Faroe Islands",
+        "title": "Cliffs & Coastal Trails",
+        "description": "Hike between sea cliffs, turf-roofed villages and waterfalls that drop straight into the North Atlantic.",
+        "image": "tour-faroe.png",
+        "days": 7,
+        "difficulty": "Moderate",
+        "groupSize": 12,
+        "price": 1640,
+        "tag": "New"
+      },
+      {
+        "location": "Costa Rica",
+        "title": "Rainforest & Volcano Trail",
+        "description": "Glide through cloud forest canopies, rappel waterfalls and watch Arenal smoke at dusk from a jungle lodge.",
+        "image": "tour-costarica.png",
+        "days": 8,
+        "difficulty": "Easy",
+        "groupSize": 14,
+        "price": 1280,
+        "tag": "Eco-Friendly"
+      },
+      {
+        "location": "Namibia",
+        "title": "Dunes & Skeleton Coast",
+        "description": "Climb the world's tallest dunes at sunrise, then track desert rhino along Africa's most haunting shoreline.",
+        "image": "tour-namibia.png",
+        "days": 9,
+        "difficulty": "Moderate",
+        "groupSize": 8,
+        "price": 2150,
+        "tag": "Small group"
+      }
+    ]
+  },
+
+  "destinations": {
+    "id": "destinations",
+    "eyebrow": "Where we go",
+    "heading": "Destinations off the beaten path",
+    "text": "Six regions, dozens of routes — and new ones scouted every season.",
+    "moreLabel": "Get the full destination list",
+    "moreHref": "#contact",
+    "tripsLabel": "trips",
+    "items": [
+      { "name": "Vatnajökull & Westfjords", "country": "Iceland",   "image": "dest-iceland.png",   "trips": 8 },
+      { "name": "Torres del Paine",          "country": "Patagonia", "image": "dest-patagonia.png", "trips": 6 },
+      { "name": "Lofoten Islands",           "country": "Norway",    "image": "dest-lofoten.png",   "trips": 5 },
+      { "name": "Serengeti & Ngorongoro",    "country": "Tanzania",  "image": "dest-serengeti.png", "trips": 7 },
+      { "name": "Japanese North Alps",       "country": "Japan",     "image": "dest-japan.png",     "trips": 4 },
+      { "name": "Sacred Valley & Andes",     "country": "Peru",      "image": "dest-andes.png",     "trips": 9 }
+    ]
+  },
+
+  "reviews": {
+    "id": "reviews",
+    "eyebrow": "Traveller stories",
+    "heading": "Don't take our word for it",
+    "items": [
+      {
+        "name": "Lena Hoffmann",
+        "trip": "Annapurna High Route, 2025",
+        "rating": 5,
+        "text": "Twelve strangers left the trailhead and came back a family. Our guide read the mountain like a book — weather, pace, teahouses — and never once made us feel rushed. The hardest and best thing I've done."
+      },
+      {
+        "name": "Marcus Adeyemi",
+        "trip": "Dunes & Skeleton Coast, 2025",
+        "rating": 5,
+        "text": "I've booked tours on three continents. Nobody scouts routes like this. Sunrise on a 300 m dune with exactly zero other footprints around is something I'll be chasing for years."
+      },
+      {
+        "name": "Sofia Reyes",
+        "trip": "Cliffs & Coastal Trails, 2024",
+        "rating": 5,
+        "text": "Tiny details done right: the local bakeries, the timing to dodge the cruise crowds, the absurdly good packed lunches. It felt less like a tour and more like travelling with friends who plan perfectly."
+      }
+    ]
+  },
+
+  "cta": {
+    "heading": "Ready to go where the roads end?",
+    "text": "Tell us your dates and fitness level — a route designer replies within one working day with two trip ideas and honest prices.",
+    "button": { "label": "Plan my expedition", "href": "#contact" },
+    "image": "cta.png"
+  },
+
+  "footer": {
+    "about": "Natorous designs small-group expeditions to the world's remaining wild places — with local guides, honest logistics and zero crowds.",
+    "contact": {
+      "email": "hello@natorous.travel",
+      "phone": "+1 (555) 014-8829",
+      "address": "Harbour Lane 8, Reykjavík, Iceland"
+    },
+    "columns": [
+      {
+        "title": "Company",
+        "links": [
+          { "label": "About us", "href": "#" },
+          { "label": "Our guides", "href": "#" },
+          { "label": "Sustainability", "href": "#" },
+          { "label": "Careers", "href": "#" }
+        ]
+      },
+      {
+        "title": "Explore",
+        "links": [
+          { "label": "All expeditions", "href": "#tours" },
+          { "label": "Destinations", "href": "#destinations" },
+          { "label": "Traveller stories", "href": "#reviews" },
+          { "label": "FAQ", "href": "#" }
+        ]
+      }
+    ],
+    "socials": [
+      { "icon": "instagram", "href": "#", "label": "Instagram" },
+      { "icon": "x-twitter", "href": "#", "label": "X (Twitter)" },
+      { "icon": "youtube",   "href": "#", "label": "YouTube" },
+      { "icon": "facebook",  "href": "#", "label": "Facebook" }
+    ],
+    "newsletter": {
+      "heading": "Field notes, monthly",
+      "text": "One email a month — new routes, open departures, zero spam.",
+      "placeholder": "you@email.com",
+      "button": "Subscribe",
+      "successMessage": "You're in! Watch your inbox for the next field note.",
+      "action": ""
+    },
+    "legalLinks": [
+      { "label": "Privacy", "href": "#" },
+      { "label": "Terms", "href": "#" }
+    ],
+    "copyright": "© {year} Natorous. All rights reserved."
+  }
+}

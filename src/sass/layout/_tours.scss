@@ -1,0 +1,49 @@
+// ============================================================
+// TOURS — featured expeditions grid + filters
+// ============================================================
+
+@use '../abstracts/variables' as *;
+
+.tours {
+    background:
+        radial-gradient(60rem 30rem at 85% 0%, rgba(60, 227, 157, 0.05), transparent 60%);
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2.2rem;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+
+        // gentle stagger on reveal
+        > .reveal:nth-child(2) { transition-delay: 0.08s; }
+        > .reveal:nth-child(3) { transition-delay: 0.16s; }
+        > .reveal:nth-child(4) { transition-delay: 0.24s; }
+    }
+
+    &__empty {
+        padding: 3rem;
+        text-align: center;
+        color: $text-muted;
+        border: 1px dashed $line-strong;
+        border-radius: $radius-md;
+    }
+
+    &__more {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    @media (max-width: $bp-md) {
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 1.4rem;
+        }
+    }
+}

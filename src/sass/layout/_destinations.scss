@@ -1,0 +1,121 @@
+// ============================================================
+// DESTINATIONS — photo cards grid
+// ============================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.destinations {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.6rem;
+
+        > .reveal:nth-child(2) { transition-delay: 0.06s; }
+        > .reveal:nth-child(3) { transition-delay: 0.12s; }
+        > .reveal:nth-child(4) { transition-delay: 0.18s; }
+        > .reveal:nth-child(5) { transition-delay: 0.24s; }
+        > .reveal:nth-child(6) { transition-delay: 0.3s; }
+    }
+
+    &__more {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+}
+
+.dest-card {
+    @include img-zoom;
+
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 5;
+    border-radius: $radius-md;
+    overflow: hidden;
+    border: 1px solid $line;
+    transition: border-color $transition, transform $transition;
+
+    &:hover {
+        border-color: $line-strong;
+        transform: translateY(-5px);
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__trips {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(6, 10, 7, 0.85) 0%, rgba(6, 10, 7, 0.1) 55%, transparent 100%);
+    }
+
+    &__caption {
+        position: absolute;
+        left: 1.4rem;
+        right: 1.4rem;
+        bottom: 1.3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    &__name {
+        font-family: $font-display;
+        font-size: 1.3rem;
+        font-weight: 650;
+        letter-spacing: -0.015em;
+        line-height: 1.15;
+        color: $text;
+    }
+
+    &__country {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(237, 248, 240, 0.72);
+    }
+
+    &__country-icon {
+        width: 1.05em;
+        height: 1.05em;
+        color: $accent;
+    }
+
+    @media (max-width: $bp-lg) {
+        & {
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    @media (max-width: 560px) {
+        & {
+            aspect-ratio: 4 / 5;
+        }
+    }
+}
+
+@media (max-width: $bp-lg) {
+    .destinations__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .destinations__grid {
+        grid-template-columns: 1fr;
+    }
+}

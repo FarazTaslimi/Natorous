@@ -1,0 +1,90 @@
+// ============================================================
+// REVIEW CARD
+// ============================================================
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.review-card {
+    @include card-shell;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1.9rem;
+    transition: transform $transition, border-color $transition;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: $line-strong;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+    }
+
+    &__avatar {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: $gradient;
+        color: #06130c;
+        font-family: $font-display;
+        font-weight: 700;
+        font-size: 0.95rem;
+        flex-shrink: 0;
+    }
+
+    &__person {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 0.98rem;
+    }
+
+    &__trip {
+        font-size: 0.8rem;
+        color: $text-faint;
+    }
+
+    &__quote {
+        margin-left: auto;
+        width: 26px;
+        height: 26px;
+        color: $accent;
+        opacity: 0.55;
+    }
+
+    // ----------------------------------------------------------
+    &__stars {
+        display: flex;
+        gap: 0.25rem;
+        margin-top: 1.3rem;
+    }
+
+    &__star {
+        width: 18px;
+        height: 18px;
+        stroke: $text-faint;
+        opacity: 0.5;
+
+        &.is-filled {
+            fill: $accent;
+            stroke: $accent;
+            opacity: 1;
+        }
+    }
+
+    &__text {
+        margin-top: 1rem;
+        color: $text-muted;
+        font-size: 0.96rem;
+        line-height: 1.7;
+    }
+}

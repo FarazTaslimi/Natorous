@@ -1,0 +1,16 @@
+{
+  "name": "natorous",
+  "version": "3.0.0",
+  "description": "Natorous — modern, data-driven adventure travel landing page. Built with Vite + Sass.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.107.1",
+    "vite": "^8.3.5"
+  }
+}

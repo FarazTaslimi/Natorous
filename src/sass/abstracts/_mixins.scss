@@ -1,0 +1,34 @@
+// ============================================================
+// SHARED MIXINS
+// ============================================================
+
+@use 'variables' as *;
+
+// Fluid container with side padding
+@mixin container {
+    width: 100%;
+    max-width: $container;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+// Card shell used by tours / reviews / cta panels
+@mixin card-shell {
+    background: $surface;
+    border: 1px solid $line;
+    border-radius: $radius-md;
+}
+
+// Image zoom on card hover
+@mixin img-zoom {
+    overflow: hidden;
+
+    img {
+        transition: transform 0.7s $ease-out;
+    }
+
+    &:hover img,
+    &:focus-visible img {
+        transform: scale(1.06);
+    }
+}
