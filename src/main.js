@@ -201,6 +201,43 @@ function initFilters() {
 }
 
 /* ============================================================
+ * Expedition planner — the "Plan my expedition" form in the CTA.
+ * No backend by default: a valid submit swaps the form for an
+ * inline success state. If config.cta.form.action is set, the form
+ * POSTs there natively and this handler steps aside.
+ * ============================================================ */
+
+function initPlanner() {
+    const form = document.querySelector('[data-planner-form]');
+    if (!form || form.getAttribute('action')) return;
+
+    const success = document.querySelector('[data-planner-success]');
+    const again = document.querySelector('[data-planner-again]');
+    if (!success || !again) return;
+
+    const heading = success.querySelector('[tabindex="-1"]');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // `novalidate` is set so we control the moment; reportValidity
+        // shows native bubbles and focuses the first invalid field.
+        if (!form.reportValidity()) return;
+
+        form.hidden = true;
+        success.hidden = false;
+        if (heading) heading.focus({ preventScroll: true });
+    });
+
+    again.addEventListener('click', () => {
+        success.hidden = true;
+        form.hidden = false;
+        form.reset();
+        form.querySelector('input, select, textarea')?.focus({ preventScroll: true });
+    });
+}
+
+/* ============================================================
  * Newsletter form — success state (no backend).
  * If config.footer.newsletter.action is set, the form posts there
  * natively and this handler is skipped.
@@ -241,6 +278,7 @@ function initInteractions() {
     initCounters();
     initFilters();
     initNewsletter();
+    initPlanner();
     initMisc();
 }
 

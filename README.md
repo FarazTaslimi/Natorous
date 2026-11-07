@@ -20,6 +20,9 @@ A travel company can rebrand this entire site **without touching a single line o
 **Workflow:** edit `public/site.config.json` → deploy.
 That's it. The page loads the JSON at runtime, so there is no build step between an edit and a deploy (this also means a prebuilt `dist/` folder can be edited and re-deployed directly).
 
+### Expedition planner form
+The "Plan my expedition" panel hosts a real form (name, email, destination, dates, group size, fitness level, message) — all fields and labels come from `cta.form` in `site.config.json`. By default a valid submit shows an inline success state. To receive real requests, set `cta.form.action` to any form endpoint (Formspree, Basin, your own API) and the form will POST there natively.
+
 ### Newsletter form
 By default the form shows a success state locally. To collect real subscriptions, set `footer.newsletter.action` to any form endpoint (Formspree, Mailchimp, Basin, your own API) and the form will POST there natively.
 
@@ -74,7 +77,7 @@ Components are pure functions that return HTML template strings (same lightweigh
 - **Expeditions** — filterable card grid (tags are generated from the config automatically)
 - **Destinations** — responsive photo card grid
 - **Stories** — review cards with auto-generated initials avatars (add a `photo` field per review if you want images)
-- **CTA panel** — starry-sky background with rounded corners
+- **CTA panel** — starry-sky background with the expedition-planner form (config-driven, optional POST endpoint) and a glass success state
 - **Footer** — 4 columns, socials, contact info, working newsletter UX, auto-updating © year
 
 ### Details handled for you

@@ -39,6 +39,8 @@ const PATHS = {
     '<path d="m4 11.5 16-7-5 15-3.5-6.5Z" /><path d="M11.5 13 20 4.5" />',
   menu:
     '<path d="M4 7h16M4 12h16M4 17h16" />',
+  chevronDown:
+    '<path d="m6 9.5 6 6 6-6" />',
   close:
     '<path d="m6 6 12 12M18 6 6 18" />',
   instagram:

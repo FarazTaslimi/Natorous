@@ -16,6 +16,12 @@
         overflow: hidden;
         border: 1px solid $line;
         isolation: isolate;
+
+        // Two-column variant that hosts the expedition-planner form
+        &--form {
+            display: block;
+            text-align: left;
+        }
     }
 
     &__bg {
@@ -41,6 +47,23 @@
         padding: clamp(3.5rem, 9vw, 6.5rem) clamp(1.5rem, 6vw, 3rem);
     }
 
+    // Inside the two-column panel the content block has no extra padding —
+    // the grid wrapper owns the spacing.
+    .cta__inner .cta__content {
+        max-width: none;
+        padding: 0;
+    }
+
+    &__inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: clamp(2.2rem, 5vw, 3.5rem);
+        align-items: center;
+        width: 100%;
+        padding: clamp(2.5rem, 5vw, 4rem);
+    }
+
     &__heading {
         font-family: $font-display;
         font-size: clamp(1.9rem, 4vw, 3rem);
@@ -53,5 +76,215 @@
         margin-top: 1.1rem;
         margin-bottom: 2rem;
         color: rgba(237, 248, 240, 0.78);
+    }
+
+    // Trust bullets under the pitch (only shown with the form variant)
+    .cta__inner .cta__text {
+        margin-bottom: 1.6rem;
+    }
+
+    &__points {
+        display: grid;
+        gap: 0.7rem;
+        list-style: none;
+    }
+
+    &__point {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        font-size: 0.94rem;
+        color: rgba(237, 248, 240, 0.82);
+    }
+
+    &__point-icon {
+        color: $accent;
+        margin-top: 0.18rem;
+        width: 1.05em;
+        height: 1.05em;
+        flex-shrink: 0;
+    }
+}
+
+// ============================================================
+// PLANNER — glass form card inside the CTA panel
+// ============================================================
+
+.planner-card {
+    background: rgba(9, 13, 10, 0.62);
+    border: 1px solid $line-strong;
+    border-radius: $radius-md;
+    padding: clamp(1.6rem, 3vw, 2.1rem);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.planner {
+    &__fields {
+        display: grid;
+        gap: 1rem;
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.9rem;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        min-width: 0;
+    }
+
+    &__label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: rgba(237, 248, 240, 0.85);
+    }
+
+    &__control {
+        width: 100%;
+        padding: 0.78rem 1.05rem;
+        background: rgba(237, 248, 240, 0.07);
+        border: 1px solid $line-strong;
+        border-radius: $radius-sm;
+        color: $text;
+        font: inherit;
+        font-size: 0.92rem;
+        transition: border-color $transition, background-color $transition;
+
+        &::placeholder {
+            color: $text-faint;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $accent;
+            background: rgba(237, 248, 240, 0.1);
+        }
+
+        // Only fires after the user typed into the field
+        &:user-invalid {
+            border-color: rgba(255, 138, 122, 0.65);
+        }
+    }
+
+    &__select-wrap {
+        position: relative;
+        display: block;
+    }
+
+    select.planner__control {
+        appearance: none;
+        -webkit-appearance: none;
+        cursor: pointer;
+        padding-right: 2.6rem;
+
+        option {
+            background: $surface;
+            color: $text;
+        }
+    }
+
+    &__chevron {
+        position: absolute;
+        right: 0.95rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: $text-muted;
+        width: 1em;
+        height: 1em;
+    }
+
+    textarea.planner__control {
+        resize: vertical;
+        min-height: 92px;
+    }
+
+    &__submit {
+        width: 100%;
+        margin-top: 1.3rem;
+    }
+
+    &__note {
+        margin-top: 0.85rem;
+        font-size: 0.78rem;
+        text-align: center;
+        color: $text-faint;
+    }
+
+    // Success state — [hidden] on the wrapper beats this display rule
+    &__success {
+        display: grid;
+        justify-items: center;
+        gap: 0.5rem;
+        padding: 1.75rem 1rem;
+        text-align: center;
+    }
+
+    &__success-icon {
+        display: grid;
+        place-items: center;
+        width: 56px;
+        height: 56px;
+        margin-bottom: 0.4rem;
+        border-radius: 50%;
+        background: $accent-soft;
+        border: 1px solid rgba(60, 227, 157, 0.4);
+        color: $accent;
+
+        .icon {
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+    &__success-heading {
+        font-family: $font-display;
+        font-size: 1.3rem;
+        font-weight: 680;
+        outline: none;
+    }
+
+    &__success-text {
+        max-width: 36ch;
+        font-size: 0.92rem;
+        color: rgba(237, 248, 240, 0.75);
+    }
+
+    &__again {
+        margin-top: 0.7rem;
+        padding: 0;
+        background: none;
+        border: none;
+        color: $accent;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+
+        &:hover {
+            color: #b9f7ca;
+        }
+    }
+}
+
+// Responsive -----------------------------------------------------
+@media (max-width: $bp-lg) {
+    .cta__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .planner__row {
+        grid-template-columns: 1fr;
     }
 }

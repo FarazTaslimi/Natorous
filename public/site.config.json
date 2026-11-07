@@ -143,7 +143,28 @@
     "heading": "Ready to go where the roads end?",
     "text": "Tell us your dates and fitness level — a route designer replies within one working day with two trip ideas and honest prices.",
     "button": { "label": "Plan my expedition", "href": "#contact" },
-    "image": "cta.png"
+    "image": "cta.png",
+    "form": {
+      "action": "",
+      "submitLabel": "Send my request",
+      "note": "No spam, no pressure — one honest reply, then it's your call.",
+      "points": [
+        "A route designer replies within one working day",
+        "Routes shaped around your dates and fitness level",
+        "Honest prices — no sales calls, no hidden fees"
+      ],
+      "successHeading": "Request received!",
+      "successText": "A route designer will reply within one working day with two trip ideas and honest prices.",
+      "fields": {
+        "name": { "label": "Full name", "placeholder": "Your name", "type": "text", "required": true },
+        "email": { "label": "Email", "placeholder": "you@email.com", "type": "email", "required": true },
+        "destination": { "label": "Where to?", "type": "select", "options": ["Surprise me", "Iceland", "Patagonia", "Norway", "Tanzania", "Japan", "Peru"] },
+        "when": { "label": "When", "type": "select", "options": ["Next 3 months", "3–6 months", "6–12 months", "Just dreaming"] },
+        "group": { "label": "Group size", "type": "select", "options": ["Just me", "Two of us", "3–4 travellers", "5+ travellers"] },
+        "fitness": { "label": "Fitness level", "type": "select", "options": ["Easy", "Moderate", "Challenging"] },
+        "message": { "label": "Anything else?", "placeholder": "Celebrations, dietary needs, worries, wild ideas…", "type": "textarea" }
+      }
+    }
   },
 
   "footer": {
